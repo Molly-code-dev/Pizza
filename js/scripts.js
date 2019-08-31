@@ -48,3 +48,78 @@ function Address (streetAddress, city, location, areacode) {
   this.areacode = areacode;
   this.deliveryAddress = (streetAddress + "  " + city + ", " + location + "  " + areacode);
 }
+
+//User Interface Logic
+$(document).ready(function(event) {
+/////Landing Page Btns
+  $("#pickup-btn").click(function() {
+    $("#order-content").show();
+    $("#landing-content").hide();
+    $("#delivery-option").text("PICKUP BY CUSTOMER");
+  });
+  $("#delivery-btn").click(function() {
+    $("#address").show();
+    $("#pickup-btn,#delivery-btn,#landing-tagline").hide();
+  });
+  $("form#address-form").submit(function(event) {
+    event.preventDefault();
+    var streetAddress = $("input#street-add").val();
+    var city = $("input#city-add").val();
+    var location = $("select#location-select").val();
+    var areacode = $("input#area-add").val();
+    var newAddress = new Address(streetAddress, city, location, areacode)
+    $("#order-content").show();
+    $("#landing-content").hide();
+    $("#delivery-option").text("DELIVER TO: " + newAddress.deliveryAddress);
+  });
+  $("form#custom-pizza").submit(function(event) {
+    event.preventDefault();
+    var customSize = $("select#size").val();
+    var sauce = $("select#sauce").val();
+    var cheese = $("select#cheese").val();
+    var veggie1 = $("select#veggie1").val();
+    var veggie2 = $("select#veggie2").val();
+    var meat = $("select#meat").val();
+    var pizzaDetails = (customSize + " - " + sauce + ", " + cheese + ", " + veggie1 + ", " + veggie2 + ", " + meat);
+    var newPizzaOrder = new Order(customSize, cheese);
+    newPizzaOrder.pizzaCost();
+    totalPriceArray.push(newPizzaOrder.pizzaPrice);
+    $("#pizza-details-dropdown").show();
+    $("#final-cost").text(newPizzaOrder.finalCost());
+    $("#pizza-details").append("<ul><li>" + pizzaDetails + "</li></ul>");
+    $("#size, #sauce, #cheese, #veggie1, #veggie2, #meat").val("");
+  });
+  $("#pizza-details-dropdown").click(function() {
+    $("#pizza-details").toggle();
+  });
+/////Side Orders
+  var newSideOrder = new Order();
+  $("#breadsticks").click(function() {
+    newSideOrder.sideCost();
+    totalPriceArray.push(newSideOrder.sidePrice);
+    $("#final-cost").text(newSideOrder.finalCost());
+    $("#sides-dropdown").show();
+    $("#sides-details").append("<ul><li>" + "3 garlic breadsticks" + "</li></ul>");
+  });
+  $("#brownie").click(function() {
+    newSideOrder.sideCost();
+    totalPriceArray.push(newSideOrder.sidePrice);
+    $("#final-cost").text(newSideOrder.finalCost());
+    $("#sides-dropdown").show();
+    $("#sides-details").append("<ul><li>" + "1 jumbo, double-chocolate brownie" + "</li></ul>");
+  });
+  $("#soda").click(function() {
+    newSideOrder.sideCost();
+    totalPriceArray.push(newSideOrder.sidePrice);
+    $("#final-cost").text(newSideOrder.finalCost());
+    $("#sides-dropdown").show();
+    $("#sides-details").append("<ul><li>" + "16oz., root-beer italian soda" + "</li></ul>");
+  });
+  $("#sides-dropdown").click(function() {
+    $("#sides-details").toggle();
+  });
+///Checkout Btn
+  $("#checkout-btn").click(function() {
+    location.reload();
+  });
+});
