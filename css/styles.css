@@ -46,3 +46,7 @@ body {
 .address-spacing {
   margin-bottom: 20px;
 }
+
+#location-select {
+  margin-bottom: 20px;
+}
