@@ -36,3 +36,13 @@ body {
   margin-bottom: 75px;
   padding-bottom: 35px;
 }
+
+#address-form {
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.address-spacing {
+  margin-bottom: 20px;
+}
