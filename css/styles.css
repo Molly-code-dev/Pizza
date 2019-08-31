@@ -30,3 +30,9 @@ body {
 #price-content {
   margin-top: 100px;
 }
+
+.page-header {
+  font-size: 65pt;
+  margin-bottom: 75px;
+  padding-bottom: 35px;
+}
