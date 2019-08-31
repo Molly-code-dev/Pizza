@@ -38,6 +38,39 @@
       <h3>Delivery Address</h3>
 
       <form class="row" action="index.html" method="post">
+        <div class="row">
+          <div class="col-xs-6">
+            <label for="first-name">First Name</label><input required type="text" class="form-control address-spacing">
+          </div>
+          <div class="col-xs-6">
+            <label for="last-name">Last Name</label><input required type="text" class="form-control address-spacing">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <label for="street-address">Address</label><input required type="text" class="form-control address-spacing">
+          </div>
+          <div class="col-xs-3">
+            <label for="city-name">City</label><input required type="text" class="form-control address-spacing">
+          </div>
+          <div class="col-xs-1">
+            <label for="location">Location</label>
+            <select required class="form-control delivery-address" id="location-select">
+              <option value=""></option>
+              <option>UpperHill</option>
+              <option>Westlands</option>
+              <option>Kilimani</option>
+              <option>Community</option>
+              <option>Ngong Road</option>
+              <option>Thika Road</option>
+              <option>Muthaiga</option>
+            </select>
+          </div>
+          <div class="col-xs-2">
+            <label for="area code">Area Code</label><input required type="text" class="form-control" id="area-add">
+          </div>
+        </div>
+
 
       </form>
     </div>
