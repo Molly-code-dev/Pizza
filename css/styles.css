@@ -17,3 +17,12 @@ body {
   margin-top: 200px;
   text-align: center;
 }
+
+#order-content {
+  display: none;
+  color: #000000;
+  background-color: #FFFFFF;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+}
